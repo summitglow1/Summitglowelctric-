@@ -11,9 +11,9 @@
   body { font-family:Arial, Helvetica, sans-serif; background:var(--black); color:var(--text); line-height:1.6; }
   a { color:var(--copper-light); }
 
-  .bg-video { position:fixed; inset:0; z-index:-2; background:url("IMG_6613.jpeg") center/cover no-repeat; }
-  .bg-video video { width:100%; height:100%; object-fit:cover; }
-  .bg-tint { position:fixed; inset:0; z-index:-1; background:rgba(0,0,0,0.55); }
+  .bg-video { position:fixed; inset:0; z-index:-2; overflow:hidden; background:url("IMG_6613.jpeg") center/cover no-repeat; }
+  .bg-video video { width:100%; height:100%; object-fit:cover; transform:scale(1.12); }
+  .bg-tint { position:fixed; inset:0; z-index:-1; background:radial-gradient(ellipse at center, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.75) 100%); }
 
   header { display:flex; align-items:center; justify-content:space-between; padding:15px 5%; background:rgba(13,13,13,0.9); border-bottom:2px solid var(--copper); position:sticky; top:0; z-index:10; }
   .brand { display:flex; align-items:center; gap:10px; font-weight:bold; font-size:1.2rem; color:var(--copper-light); text-decoration:none; }
@@ -121,7 +121,7 @@
   const video = document.getElementById("walkthrough");
   let target = 0, current = 0;
 
-  // Wake the video up on iPhone/iPad so it can be moved by scrolling
+  // Wake the video up on iPhone/iPad so scrolling can move it
   function unlock() {
     const p = video.play();
     if (p) p.then(() => video.pause()).catch(() => {});
@@ -129,7 +129,7 @@
   video.addEventListener("loadedmetadata", unlock);
   window.addEventListener("touchstart", unlock, { once: true });
 
-  // Work out how far down the page we are, and match the video to it
+  // How far down the page we are, matched to a moment in the video
   function onScroll() {
     if (!video.duration) return;
     const max = document.documentElement.scrollHeight - window.innerHeight;
@@ -138,10 +138,13 @@
   }
   window.addEventListener("scroll", onScroll, { passive: true });
 
-  // Smoothly glide the video toward where it should be
+  // Glide gently toward that moment instead of jumping
+  let seeking = false;
+  video.addEventListener("seeked", () => { seeking = false; });
   function tick() {
-    current += (target - current) * 0.15;
-    if (video.duration && Math.abs(video.currentTime - current) > 0.03) {
+    current += (target - current) * 0.06;
+    if (video.duration && !seeking && Math.abs(video.currentTime - current) > 0.04) {
+      seeking = true;
       video.currentTime = current;
     }
     requestAnimationFrame(tick);
