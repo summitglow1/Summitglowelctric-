@@ -10,33 +10,48 @@
   * { box-sizing:border-box; margin:0; padding:0; }
   body { font-family:Arial, Helvetica, sans-serif; background:var(--black); color:var(--text); line-height:1.6; }
   a { color:var(--copper-light); }
-  header { display:flex; align-items:center; justify-content:space-between; padding:15px 5%; background:var(--dark); border-bottom:2px solid var(--copper); position:sticky; top:0; z-index:10; }
+
+  .bg-video { position:fixed; inset:0; z-index:-2; background:url("IMG_6613.jpeg") center/cover no-repeat; }
+  .bg-video video { width:100%; height:100%; object-fit:cover; }
+  .bg-tint { position:fixed; inset:0; z-index:-1; background:rgba(0,0,0,0.55); }
+
+  header { display:flex; align-items:center; justify-content:space-between; padding:15px 5%; background:rgba(13,13,13,0.9); border-bottom:2px solid var(--copper); position:sticky; top:0; z-index:10; }
   .brand { display:flex; align-items:center; gap:10px; font-weight:bold; font-size:1.2rem; color:var(--copper-light); text-decoration:none; }
   .brand img { height:90px; }
   nav a { margin-left:18px; text-decoration:none; color:var(--text); }
   nav a:hover { color:var(--copper-light); }
-  .hero { position:relative; min-height:85vh; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:120px 5%; overflow:hidden; background:url("IMG_6613.jpeg") center/cover no-repeat; }
-  .hero video { position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:0; }
-  .hero::after { content:""; position:absolute; inset:0; background:rgba(0,0,0,0.5); z-index:1; }
-  .hero-content { position:relative; z-index:2; }
-  .hero h1 { font-size:2.6rem; color:var(--copper-light); margin-bottom:15px; text-shadow:0 2px 8px rgba(0,0,0,0.8); }
-  .hero p { font-size:1.2rem; max-width:650px; margin:0 auto 30px; text-shadow:0 2px 6px rgba(0,0,0,0.8); }
+
+  .hero { min-height:90vh; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:120px 5%; }
+  .hero h1 { font-size:2.6rem; color:var(--copper-light); margin-bottom:15px; text-shadow:0 2px 8px rgba(0,0,0,0.9); }
+  .hero p { font-size:1.2rem; max-width:650px; margin:0 auto 30px; text-shadow:0 2px 6px rgba(0,0,0,0.9); }
   .tagline { font-style:italic; color:var(--copper-light); margin-bottom:10px; }
+  .scroll-hint { margin-top:40px; font-size:0.95rem; opacity:0.8; }
+
   .btn { display:inline-block; padding:14px 28px; margin:8px; border-radius:6px; font-weight:bold; text-decoration:none; }
   .btn-primary { background:var(--copper); color:#fff; }
   .btn-outline { border:2px solid var(--copper); color:var(--copper-light); background:rgba(0,0,0,0.4); }
-  section { padding:60px 5%; }
-  h2 { text-align:center; color:var(--copper-light); font-size:2rem; margin-bottom:35px; }
+
+  section { padding:100px 5%; min-height:80vh; }
+  h2 { text-align:center; color:var(--copper-light); font-size:2rem; margin-bottom:35px; text-shadow:0 2px 8px rgba(0,0,0,0.9); }
   .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:20px; max-width:1100px; margin:0 auto; }
-  .card { background:var(--dark); border:1px solid #333; border-top:3px solid var(--copper); border-radius:8px; padding:25px; }
+  .card { background:rgba(20,20,20,0.82); border:1px solid #333; border-top:3px solid var(--copper); border-radius:8px; padding:25px; }
   .card h3 { color:var(--copper-light); margin-bottom:10px; }
-  .about, .contact { max-width:750px; margin:0 auto; text-align:center; }
-  .contact p { margin:10px 0; font-size:1.1rem; }
-  footer { text-align:center; padding:25px 5%; background:var(--dark); border-top:2px solid var(--copper); font-size:0.9rem; }
-  @media (max-width:700px) { nav { display:none; } .hero h1 { font-size:1.8rem; } }
+  .panel { max-width:750px; margin:0 auto; text-align:center; background:rgba(20,20,20,0.82); border-top:3px solid var(--copper); border-radius:8px; padding:35px; }
+  .panel p { margin:10px 0; font-size:1.1rem; }
+
+  footer { text-align:center; padding:25px 5%; background:rgba(13,13,13,0.95); border-top:2px solid var(--copper); font-size:0.9rem; }
+  @media (max-width:700px) { nav { display:none; } .hero h1 { font-size:1.8rem; } section { min-height:auto; } }
 </style>
 </head>
 <body>
+
+<div class="bg-video">
+  <video id="walkthrough" muted playsinline preload="auto" poster="IMG_6613.jpeg">
+    <source src="IMG_2995.mov" type="video/mp4">
+    <source src="IMG_2995.mov" type="video/quicktime">
+  </video>
+</div>
+<div class="bg-tint"></div>
 
 <header>
   <a class="brand" href="#"><img src="IMG_6613.jpeg" alt="Summit Glow Electric logo"> Summit Glow Electric</a>
@@ -49,17 +64,14 @@
 </header>
 
 <div class="hero">
-  <video autoplay muted loop playsinline poster="IMG_6613.jpeg">
-    <source src="IMG_2995.mov" type="video/mp4">
-    <source src="IMG_2995.mov" type="video/quicktime">
-  </video>
-  <div class="hero-content">
-    <p class="tagline">Where Quality Meets the Peak</p>
-    <h1>Powering Denver Homes, Safely and Brightly</h1>
-    <p>Licensed and insured residential electricians serving the Denver area, with same-day service available.</p>
+  <p class="tagline">Where Quality Meets the Peak</p>
+  <h1>Powering Denver Homes, Safely and Brightly</h1>
+  <p>Licensed and insured residential electricians serving the Denver area, with same-day service available.</p>
+  <div>
     <a class="btn btn-primary" href="tel:7206664345">Call 720-666-4345</a>
     <a class="btn btn-outline" href="mailto:summitglowelectric@gmail.com?subject=Quote%20Request">Request a Quote</a>
   </div>
+  <p class="scroll-hint">Scroll to take the tour &darr;</p>
 </div>
 
 <section id="services">
@@ -85,14 +97,14 @@
 
 <section id="about">
   <h2>About Us</h2>
-  <div class="about">
+  <div class="panel">
     <p>Summit Glow Electric is a Denver-area electrical company dedicated to residential work. We believe every homeowner deserves electrical service that is safe, reliable and honest. Whether it's a quick repair or a full panel upgrade, we treat your home like our own.</p>
   </div>
 </section>
 
 <section id="contact">
   <h2>Contact Us</h2>
-  <div class="contact">
+  <div class="panel">
     <p>Ready to get started? Reach out today for a free quote or same-day service.</p>
     <p><strong>Phone:</strong> <a href="tel:7206664345">720-666-4345</a></p>
     <p><strong>Email:</strong> <a href="mailto:summitglowelectric@gmail.com">summitglowelectric@gmail.com</a></p>
@@ -104,6 +116,38 @@
 <footer>
   <p>&copy; Summit Glow Electric. Licensed and insured residential electrical services in the Denver area.</p>
 </footer>
+
+<script>
+  const video = document.getElementById("walkthrough");
+  let target = 0, current = 0;
+
+  // Wake the video up on iPhone/iPad so it can be moved by scrolling
+  function unlock() {
+    const p = video.play();
+    if (p) p.then(() => video.pause()).catch(() => {});
+  }
+  video.addEventListener("loadedmetadata", unlock);
+  window.addEventListener("touchstart", unlock, { once: true });
+
+  // Work out how far down the page we are, and match the video to it
+  function onScroll() {
+    if (!video.duration) return;
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = max > 0 ? Math.min(Math.max(window.scrollY / max, 0), 1) : 0;
+    target = progress * (video.duration - 0.05);
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
+
+  // Smoothly glide the video toward where it should be
+  function tick() {
+    current += (target - current) * 0.15;
+    if (video.duration && Math.abs(video.currentTime - current) > 0.03) {
+      video.currentTime = current;
+    }
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+</script>
 
 </body>
 </html>
