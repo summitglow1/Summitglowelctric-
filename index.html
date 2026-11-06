@@ -3,109 +3,97 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Summit Glow Electric | Residential Electricians in Denver</title>
-<meta name="description" content="Licensed and insured residential electricians in the Denver area. Wiring, panel upgrades, EV chargers, lighting and same-day service.">
+<title>Summit Glow Electric | Denver Residential Electricians</title>
+<meta name="description" content="Licensed and insured residential electricians serving the Denver area. Same-day service available.">
 <style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: Arial, Helvetica, sans-serif; color: #1f2937; line-height: 1.6; }
-  a { color: inherit; text-decoration: none; }
-  .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
-  header { background: #0d0d0d; color: #fff; padding: 10px 0; position: sticky; top: 0; z-index: 10; border-bottom: 2px solid #c8834f; }
-  header .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
-  .logo img { height: 60px; display: block; }
-  nav a { margin-left: 18px; font-size: 0.95rem; }
-  nav a:hover { color: #c8834f; }
-  .hero { background: radial-gradient(circle at center, #2a1c12 0%, #0d0d0d 70%); color: #fff; text-align: center; padding: 90px 20px; }
-  .hero h1 { font-size: 2.6rem; margin-bottom: 10px; }
-  .tagline { color: #e0a878; font-style: italic; font-size: 1.3rem; margin-bottom: 16px; letter-spacing: 1px; }
-  .hero p.sub { font-size: 1.15rem; max-width: 650px; margin: 0 auto 28px; color: #ddd; }
-  .btn { display: inline-block; padding: 14px 28px; border-radius: 6px; font-weight: bold; margin: 6px; }
-  .btn-copper { background: linear-gradient(135deg, #a8652f, #e0a878); color: #0d0d0d; }
-  .btn-outline { border: 2px solid #c8834f; color: #fff; }
-  .btn:hover { opacity: 0.9; }
-  section { padding: 70px 0; }
-  h2 { text-align: center; font-size: 2rem; margin-bottom: 40px; color: #0d0d0d; }
-  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; }
-  .card { background: #fff; border-radius: 10px; padding: 26px; box-shadow: 0 4px 14px rgba(0,0,0,0.08); border-top: 4px solid #c8834f; }
-  .card h3 { margin-bottom: 10px; color: #0d0d0d; }
-  .icon { font-size: 2rem; margin-bottom: 10px; }
-  .alt { background: #f7f3ef; }
-  .about p { max-width: 750px; margin: 0 auto; text-align: center; font-size: 1.1rem; }
-  .contact { background: #0d0d0d; color: #fff; text-align: center; }
-  .contact h2 { color: #fff; }
-  .contact p { margin-bottom: 10px; font-size: 1.15rem; }
-  .contact strong { color: #c8834f; }
-  footer { background: #000; color: #aaa; text-align: center; padding: 20px; font-size: 0.9rem; border-top: 1px solid #c8834f; }
-  @media (max-width: 600px) { .hero h1 { font-size: 1.9rem; } nav a { margin-left: 10px; } .logo img { height: 45px; } }
+  :root { --copper:#c87533; --copper-light:#e09a5f; --black:#0d0d0d; --dark:#1a1a1a; --text:#f2f2f2; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:Arial, Helvetica, sans-serif; background:var(--black); color:var(--text); line-height:1.6; }
+  a { color:var(--copper-light); }
+  header { display:flex; align-items:center; justify-content:space-between; padding:15px 5%; background:var(--dark); border-bottom:2px solid var(--copper); position:sticky; top:0; z-index:10; }
+  .brand { display:flex; align-items:center; gap:10px; font-weight:bold; font-size:1.2rem; color:var(--copper-light); text-decoration:none; }
+  .brand img { height:50px; }
+  nav a { margin-left:18px; text-decoration:none; color:var(--text); }
+  nav a:hover { color:var(--copper-light); }
+  .hero { text-align:center; padding:90px 5%; background:linear-gradient(180deg,#1a1a1a,#0d0d0d); }
+  .hero h1 { font-size:2.4rem; color:var(--copper-light); margin-bottom:15px; }
+  .hero p { font-size:1.2rem; max-width:650px; margin:0 auto 30px; }
+  .tagline { font-style:italic; color:var(--copper); margin-bottom:10px; }
+  .btn { display:inline-block; padding:14px 28px; margin:8px; border-radius:6px; font-weight:bold; text-decoration:none; }
+  .btn-primary { background:var(--copper); color:#fff; }
+  .btn-outline { border:2px solid var(--copper); color:var(--copper-light); }
+  section { padding:60px 5%; }
+  h2 { text-align:center; color:var(--copper-light); font-size:2rem; margin-bottom:35px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:20px; max-width:1100px; margin:0 auto; }
+  .card { background:var(--dark); border:1px solid #333; border-top:3px solid var(--copper); border-radius:8px; padding:25px; }
+  .card h3 { color:var(--copper-light); margin-bottom:10px; }
+  .about, .contact { max-width:750px; margin:0 auto; text-align:center; }
+  .contact p { margin:10px 0; font-size:1.1rem; }
+  footer { text-align:center; padding:25px 5%; background:var(--dark); border-top:2px solid var(--copper); font-size:0.9rem; }
+  @media (max-width:700px) { nav { display:none; } .hero h1 { font-size:1.8rem; } }
 </style>
 </head>
 <body>
 
 <header>
-  <div class="container">
-    <a class="logo" href="#"><img src="IMG_6613.jpeg" alt="Summit Glow Electric logo"></a>
-    <nav>
-      <a href="#services">Services</a>
-      <a href="#why">Why Us</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </div>
+  <a class="brand" href="#"><img src="logo.png" alt="Summit Glow Electric logo"> Summit Glow Electric</a>
+  <nav>
+    <a href="#services">Services</a>
+    <a href="#why">Why Us</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
 </header>
 
 <div class="hero">
-  <h1>Powering Denver Homes, Safely and Brightly</h1>
-  <p class="tagline">Where Quality Meets the Peak</p>
-  <p class="sub">Licensed and insured residential electricians serving the Denver area, with same-day service available.</p>
-  <a class="btn btn-copper" href="tel:7206664345">Call 720-666-4345</a>
-  <a class="btn btn-outline" href="mailto:summitglowelectric@gmail.com?subject=Quote%20Request">Request a Quote</a>
+  <p class="tagline">Where Quality Meets the Peak</p>
+  <h1>Powering Denver Homes, Safely and Brightly</h1>
+  <p>Licensed and insured residential electricians serving the Denver area, with same-day service available.</p>
+  <a class="btn btn-primary" href="tel:7206664345">Call 720-666-4345</a>
+  <a class="btn btn-outline" href="mailto:summitglowelectric@gmail.com?subject=Quote%20Request">Request a Quote</a>
 </div>
 
 <section id="services">
-  <div class="container">
-    <h2>Our Services</h2>
-    <div class="grid">
-      <div class="card"><div class="icon">🔌</div><h3>Residential Wiring</h3><p>From new builds to rewiring older homes, we install safe, code-compliant wiring that keeps your home running smoothly.</p></div>
-      <div class="card"><div class="icon">⚡</div><h3>Panel Upgrades</h3><p>Outgrown your electrical panel? We upgrade panels to handle modern appliances, additions and growing power needs.</p></div>
-      <div class="card"><div class="icon">🚗</div><h3>EV Chargers</h3><p>Charge at home with confidence. We install Level 2 EV chargers for all major vehicle brands.</p></div>
-      <div class="card"><div class="icon">💡</div><h3>Lighting</h3><p>Indoor, outdoor, recessed or decorative, we design and install lighting that makes your home shine.</p></div>
-      <div class="card"><div class="icon">🛠️</div><h3>And More</h3><p>Outlets, switches, ceiling fans, troubleshooting and repairs. If it's electrical, we can help.</p></div>
-    </div>
-  </div>
+  <h2>Our Services</h2>
+  <div class="grid">
+    <div class="card"><h3>Residential Wiring</h3><p>From new builds to rewiring older homes, we install safe, code-compliant wiring that keeps your home running smoothly.</p></div>
+    <div class="card"><h3>Panel Upgrades</h3><p>Outgrown your electrical panel? We upgrade panels to handle modern appliances, additions and growing power needs.</p></div>
+    <div class="card"><h3>EV Chargers</h3><p>Charge at home with confidence. We install Level 2 EV chargers for all major vehicle brands.</p></div>
+    <div class="card"><h3>Lighting</h3><p>Indoor, outdoor, recessed or decorative, we design and install lighting that makes your home shine.</p></div>
+    <div class="card"><h3>And More</h3><p>Outlets, switches, ceiling fans, troubleshooting and repairs. If it's electrical, we can help.</p></div>
+  </div>
 </section>
 
-<section id="why" class="alt">
-  <div class="container">
-    <h2>Why Choose Summit Glow Electric</h2>
-    <div class="grid">
-      <div class="card"><h3>Licensed and Insured</h3><p>Your home and your peace of mind are protected.</p></div>
-      <div class="card"><h3>Same-Day Service</h3><p>Electrical problems don't wait, and neither do we.</p></div>
-      <div class="card"><h3>Local to Denver</h3><p>We know Denver homes and serve our neighbours with pride.</p></div>
-      <div class="card"><h3>Quality Workmanship</h3><p>Every job is done safely, neatly and to code.</p></div>
-    </div>
-  </div>
+<section id="why">
+  <h2>Why Choose Summit Glow Electric</h2>
+  <div class="grid">
+    <div class="card"><h3>Licensed and Insured</h3><p>Your home and your peace of mind are protected.</p></div>
+    <div class="card"><h3>Same-Day Service</h3><p>Electrical problems don't wait, and neither do we.</p></div>
+    <div class="card"><h3>Local to Denver</h3><p>We know Denver homes and serve our neighbors with pride.</p></div>
+    <div class="card"><h3>Quality Workmanship</h3><p>Every job is done safely, neatly and to code.</p></div>
+  </div>
 </section>
 
-<section id="about" class="about">
-  <div class="container">
-    <h2>About Us</h2>
-    <p>Summit Glow Electric is a Denver-area electrical company dedicated to residential work. We believe every homeowner deserves electrical service that is safe, reliable and honest. Whether it's a quick repair or a full panel upgrade, we treat your home like our own.</p>
-  </div>
+<section id="about">
+  <h2>About Us</h2>
+  <div class="about">
+    <p>Summit Glow Electric is a Denver-area electrical company dedicated to residential work. We believe every homeowner deserves electrical service that is safe, reliable and honest. Whether it's a quick repair or a full panel upgrade, we treat your home like our own.</p>
+  </div>
 </section>
 
-<section id="contact" class="contact">
-  <div class="container">
-    <h2>Contact Us</h2>
-    <p>Ready to get started? Reach out today for a free quote or same-day service.</p>
-    <p><strong>Phone:</strong> <a href="tel:7206664345">720-666-4345</a></p>
-    <p><strong>Email:</strong> <a href="mailto:summitglowelectric@gmail.com">summitglowelectric@gmail.com</a></p>
-    <p><strong>Service Area:</strong> Denver and surrounding areas</p>
-    <a class="btn btn-copper" href="tel:7206664345">Call Now</a>
-  </div>
+<section id="contact">
+  <h2>Contact Us</h2>
+  <div class="contact">
+    <p>Ready to get started? Reach out today for a free quote or same-day service.</p>
+    <p><strong>Phone:</strong> <a href="tel:7206664345">720-666-4345</a></p>
+    <p><strong>Email:</strong> <a href="mailto:summitglowelectric@gmail.com">summitglowelectric@gmail.com</a></p>
+    <p><strong>Service Area:</strong> Denver and surrounding areas</p>
+    <a class="btn btn-primary" href="tel:7206664345">Call Now</a>
+  </div>
 </section>
 
 <footer>
-  &copy; <script>document.write(new Date().getFullYear())</script> Summit Glow Electric. Where Quality Meets the Peak.
+  <p>&copy; Summit Glow Electric. Licensed and insured residential electrical services in the Denver area.</p>
 </footer>
 
 </body>
