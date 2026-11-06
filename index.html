@@ -40,7 +40,19 @@
   .panel p { margin:10px 0; font-size:1.1rem; }
 
   footer { text-align:center; padding:25px 5%; background:rgba(13,13,13,0.95); border-top:2px solid var(--copper); font-size:0.9rem; }
-  @media (max-width:700px) { nav { display:none; } .hero h1 { font-size:1.8rem; } section { min-height:auto; } }
+
+  /* Phones: lighter, see-through boxes so the video shows through */
+  @media (max-width:700px) {
+    nav { display:none; }
+    .brand img { height:60px; }
+    .hero h1 { font-size:1.8rem; }
+    .bg-tint { background:rgba(0,0,0,0.3); }
+    section { min-height:auto; padding:70px 6%; }
+    .grid { gap:40px; }
+    .card, .panel { background:rgba(0,0,0,0.35); border:none; border-left:3px solid var(--copper); border-radius:4px; padding:14px 16px; }
+    .card p, .panel p { font-size:0.98rem; }
+    .card h3, .card p, .panel p, h2 { text-shadow:0 1px 3px rgba(0,0,0,1), 0 0 10px rgba(0,0,0,0.9); }
+  }
 </style>
 </head>
 <body>
